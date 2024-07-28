@@ -1,6 +1,5 @@
-package pageObj;
+package pagesobject;
 
-import org.junit.runners.Parameterized;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 

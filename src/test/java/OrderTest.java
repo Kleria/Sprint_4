@@ -1,22 +1,19 @@
-import org.junit.After;
-import org.junit.Before;
+
 import org.junit.Test;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.firefox.FirefoxDriver;
+
 import org.junit.runner.RunWith;
 import org.junit.runners.Parameterized;
-import pageObj.Dialogues;
-import pageObj.MainPage;
-import pageObj.OrderFormDetails;
-import pageObj.OrderFormPersonalInfo;
+import pagesobject.Dialogues;
+import pagesobject.MainPage;
+import pagesobject.OrderFormDetails;
+import pagesobject.OrderFormPersonalInfo;
 
 import static org.hamcrest.CoreMatchers.startsWith;
 import static org.hamcrest.MatcherAssert.assertThat;
 
 @RunWith(Parameterized.class)
-public class OrderTest {
-    private WebDriver driver;
+public class OrderTest extends BaseTest{
+
     private String clientName;
     private String clientSurname;
     private String clientAddress;
@@ -39,15 +36,6 @@ public class OrderTest {
         this.clientMetroStation = clientMetroStation;
         this.clientPhoneNumber = clientPhoneNumber;
     }
-
-    @Before
-    public void setup() {
-        driver = new FirefoxDriver();
-        driver = new ChromeDriver();
-        driver.get("https://qa-scooter.praktikum-services.ru/");
-    }
-
-
     @Test
     public void createASuccessfulOrderWithButtonInHeaderTest() {
         MainPage mainPage = new MainPage(driver);
@@ -94,8 +82,4 @@ public class OrderTest {
         assertThat(confirmationText, startsWith("Заказ оформлен"));
     }
 
-    @After
-    public void teardown() {
-        driver.quit();
-    }
 }
