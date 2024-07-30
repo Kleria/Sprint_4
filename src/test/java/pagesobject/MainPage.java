@@ -54,5 +54,6 @@ public class MainPage {
 
     public void clickOrderButtonInBody() {
         driver.findElement(orderButtonInBody).click();
+
     }
 }
