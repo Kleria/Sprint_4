@@ -1,5 +1,5 @@
 import org.junit.After;
-
+import constants.Const;
 import org.junit.Before;
 
 import org.openqa.selenium.WebDriver;
@@ -10,7 +10,7 @@ public class BaseTest {
     @Before
     public void setup() {
         driver = new ChromeDriver();
-        driver.get("https://qa-scooter.praktikum-services.ru/");
+        driver.get(Const.BASE_URL);
     }
     @After
     public void teardown() {
